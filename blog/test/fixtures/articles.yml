@@ -2,7 +2,7 @@
 
 one:
   title: MyString
-  content: MyText
+  content: MyTextShouldBeOK
   tags: MyString
 
 two:
