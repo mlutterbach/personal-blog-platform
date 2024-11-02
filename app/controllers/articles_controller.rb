@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @articles = Article.where('tags LIKE ?', "%#{params[:tags]}%") if params[:tags]
-    render json: @articles
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @articles }
+    end
   end
 
   # GET /articles/:id
