@@ -1,0 +1,144 @@
+/* Contact.css */
+
+/* General styles */
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 60px; /* Adjust for fixed navbar */
+}
+
+/* Left side styles for contact info */
+.contact-info {
+  flex: 1;
+  margin-right: 20px;
+  text-align: left; /* Align text to the left */
+}
+
+.contact-info h1 {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 15px; /* Space below the title */
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+.contact-info .contact-detail {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.contact-info .contact-content {
+  font-weight: normal;
+  font-size: 0.9em; /* Slightly smaller than the title */
+  margin-bottom: 10px; /* Add space below each contact item */
+}
+
+/* Right side styles for the form */
+.contact-form {
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styles for input fields */
+.name-fields {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px; /* Space between the first row and the second row */
+}
+
+.field {
+  flex: 1;
+  margin-right: 10px; /* Space between fields */
+}
+
+/* Ensure margin for last field is removed */
+.field:last-child {
+  margin-right: 0; /* Remove margin for the last field */
+}
+
+.contact-form label {
+  margin-top: 5px; /* Adjust spacing for labels */
+  font-weight: bold;
+  display: block; /* Display label as block to ensure it appears above input */
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: calc(100% - 10px); /* Ensure inputs are wide enough */
+}
+
+.contact-form textarea {
+  width: 100%; /* Full width for the textarea */
+  height: 120px; /* Increased height for the message */
+}
+
+.contact-form button {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: grey; /* Change to grey on hover */
+}
+
+/* Success and error messages */
+.success-message {
+  color: green;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column; /* Stack vertically on mobile */
+    padding: 10px; /* Adjust padding on mobile */
+  }
+
+  .contact-info {
+    margin-right: 0; /* Reset margin on mobile */
+    margin-bottom: 20px; /* Add space between sections */
+  }
+
+  .contact-form {
+    margin-left: 0; /* Reset margin on mobile */
+  }
+
+  .field {
+    margin-right: 0; /* Reset margin on mobile */
+    margin-bottom: 10px; /* Space below each field */
+  }
+
+  .name-fields {
+    flex-direction: column; /* Stack fields vertically on mobile */
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%; /* Full width on mobile */
+  }
+}
