@@ -1,0 +1,123 @@
+/* Navbar.css */
+* {
+  box-sizing: border-box; /* Ensure padding does not affect overall width */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevent overflow */
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+}
+
+.role {
+  font-size: 0.8em;
+  color: gray;
+}
+
+.name-link {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.menu-items {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-items a {
+  color: black;
+  text-decoration: none;
+  padding: 0 10px;
+  transition: color 0.4s ease;
+}
+
+.menu-items a:hover {
+  color: gray;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  text-align: center;
+}
+
+.mobile-menu-item {
+  padding: 20px 0;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-item a:hover {
+  color: gold;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .menu-items {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+    z-index: 1100;
+  }
+}
