@@ -6,6 +6,7 @@ import ArticleList from './components/ArticleList';
 import CreateArticle from './components/CreateArticle';
 import Article from './components/Article';
 import Contact from './components/Contact';
+import Resume from './components/Resume';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/articles/:id" element={<Article />} />
           <Route path="/create-article" element={<CreateArticle />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/resume" element={<Resume />} />
         </Routes>
       </div>
     </Router>
