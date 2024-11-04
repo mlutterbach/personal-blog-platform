@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
 
-function Home() {
+const Home = () => {
   const navigate = useNavigate();
 
   return (
@@ -13,7 +13,7 @@ function Home() {
       <div className='intro-section'>
         <h1>Hello</h1>
         <h2>A bit about me</h2>
-        <p>Welcome to my personal site! I am passionate about [describe your passions, background, or other relevant info].
+        <p>Welcome to my personal site! I am passionate about programming, technology, languages.
         Take a look at my resume, projects, and blog, or feel free to contact me.</p>
         <div className="circle-container">
           <div className="circle resume" onClick={() => navigate('/resume')}>Resume</div>

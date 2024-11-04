@@ -7,6 +7,7 @@ import CreateArticle from './components/CreateArticle';
 import Article from './components/Article';
 import Contact from './components/Contact';
 import Resume from './components/Resume';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/resume" element={<Resume />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

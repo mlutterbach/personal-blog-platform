@@ -21,10 +21,11 @@ const Resume = () => {
             <ul>
               <li>Developed and maintained CleverAds’ backend application using Ruby on Rails, creating an online advertising platform, enabling users to create, optimize, and manage ad campaigns.</li>
               <li>Developed background Workers using Sidekiq to preemptively deal with issues or create additional sales.</li>
+              <li>Maintained three large projects where users interacted with our application through separate and fully functioning bots for MS Teams, Slack, and Google Chat using JavaScript and Node.js.</li>
+              <li>JavaScript bots enabled users to track and receive ad reports, create new alerts, and monitor the status of existing alerts.</li>
               <li>Implemented test-driven development (TDD) practices with RSpec, created unit tests for Models, Controllers, Services, and Workers, increasing test coverage by over 30%.</li>
               <li>Transitioned Ruby on Rails project from MySQL and DBeaver relational database to non-relational database MongoDB and MongoDB Compass.</li>
               <li>Utilized Postman for API calls to test and ensure the functionality of various backend services.</li>
-              <li>Maintained three large projects where users interacted with our application through separate and fully functioning bots for MS Teams, Slack, and Google Chat using JavaScript and Node.js. These bots enabled users to track and receive ad reports, create new alerts, and monitor the status of existing alerts.</li>
               <li>Utilized ngrok to test new features and ensure seamless bot functionality.</li>
               <li>Addressed and resolved errors reported in Rollbar, improving system reliability and reducing downtime.</li>
             </ul>

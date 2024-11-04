@@ -31,6 +31,8 @@ const Navbar = () => {
       </div>
       <div className='navbar-right'>
         <div className={`menu-items ${isOpen ? 'open' : ''}`}>
+          <Link to="/" className="menu-item" onClick={closeMenu}>Home</Link>
+          <span>|</span>
           <Link to="/resume" className="menu-item" onClick={closeMenu}>Resume</Link>
           <span>|</span>
           <Link to="/projects" className="menu-item" onClick={closeMenu}>Projects</Link>
@@ -48,6 +50,7 @@ const Navbar = () => {
       {isOpen && (
         <div className='mobile-menu'>
           <button className='close-button' onClick={closeMenu}>✖</button>
+          <Link to='/' className="mobile-menu-item" onClick={closeMenu}>Home</Link>
           <Link to='/resume' className="mobile-menu-item" onClick={closeMenu}>Resume</Link>
           <Link to="/projects" className="mobile-menu-item" onClick={closeMenu}>Projects</Link>
           <Link to="/articles" className="mobile-menu-item" onClick={closeMenu}>Blog</Link>

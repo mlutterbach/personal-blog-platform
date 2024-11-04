@@ -1,0 +1,29 @@
+.footer {
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  padding: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border-top: 1px solid rgb(216, 211, 211);
+}
+
+.footer-section {
+  margin: 5px;
+}
+
+.footer h4 {
+  margin: 5px 0;
+}
+
+.footer-icons a {
+  color: #333;
+  margin: 0 10px;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.footer-icons a:hover {
+  color: #0077b5;
+}
