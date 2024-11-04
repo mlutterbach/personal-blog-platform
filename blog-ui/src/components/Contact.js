@@ -53,20 +53,16 @@ const Contact = () => {
         <h1>Contact</h1>
         <p>Looking forward to hearing from you.</p>
         <div>
-          <div className="contact-detail">Phone</div>
-          <div className="contact-content">+1 (555) 123-4567</div>
-        </div>
-        <div>
           <div className="contact-detail">Email</div>
-          <div className="contact-content">example@example.com</div>
+          <div className="contact-content">mlutterb@gmail.com</div>
         </div>
         <div>
           <div className="contact-detail">LinkedIn</div>
-          <div className="contact-content">linkedin.com/in/example</div>
+          <div className="contact-content">linkedin.com/in/marcoslutterbach/</div>
         </div>
         <div>
           <div className="contact-detail">GitHub</div>
-          <div className="contact-content">github.com/example</div>
+          <div className="contact-content">https://github.com/mlutterbach</div>
         </div>
       </div>
 
