@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,26 +11,33 @@ const CreateArticle = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('token');
+    if (!isLoggedIn) {
+      navigate('/login');
+    }
+  }, [navigate]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(`${apiUrl}/articles`, {
         article: { title, content, tags }
-       }, {
-          headers: {
-            'Accept': 'application/json'
-          }
+      }, {
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
       });
       console.log('Article created:', response.data);
 
-      // Reset form fields
       setTitle('');
       setContent('');
       setTags('');
 
       setSuccessMessage('Article created successfully!');
       setTimeout(() => {
-        navigate('/articles')
+        navigate('/articles');
       }, 2000);
     } catch (error) {
       console.log('Error creating article:', error);
@@ -55,7 +62,7 @@ const CreateArticle = () => {
           <label>Tags:</label>
           <input type="text" value={tags} onChange={(e) => setTags(e.target.value)} />
         </div>
-        <button type='submit'>Create Article</button>
+        <button type="submit">Create Article</button>
       </form>
     </div>
   );

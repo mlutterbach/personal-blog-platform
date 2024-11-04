@@ -8,6 +8,8 @@ import Article from './components/Article';
 import Contact from './components/Contact';
 import Resume from './components/Resume';
 import Footer from './components/Footer';
+import Register from './components/Register';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<ArticleList />} />
           <Route path="/articles/:id" element={<Article />} />
