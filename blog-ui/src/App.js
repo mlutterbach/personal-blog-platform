@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import ArticleList from './components/ArticleList';
 import CreateArticle from './components/CreateArticle';
+import EditArticle from './components/EditArticle';
 import Article from './components/Article';
 import Contact from './components/Contact';
 import Resume from './components/Resume';
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<ArticleList />} />
           <Route path="/articles/:id" element={<Article />} />
+          <Route path="/articles/:id/edit" element={<EditArticle />} />
           <Route path="/create-article" element={<CreateArticle />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/resume" element={<Resume />} />

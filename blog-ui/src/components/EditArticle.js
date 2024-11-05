@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import '../styles/CreateArticle.css';
 
 const apiUrl = process.env.RAILS_APP_WEBSITE_URL || 'http://localhost:3001';
 
-const CreateArticle = () => {
+const EditArticle = () => {
+  const { id } = useParams();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [tags, setTags] = useState('');
@@ -14,11 +15,19 @@ const CreateArticle = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem('token');
-    if (!isLoggedIn) {
-      navigate('/login');
-    }
-  }, [navigate]);
+    const fetchArticle = async () => {
+      try {
+        const response = await axios.get(`${apiUrl}/articles/${id}`);
+        setTitle(response.data.title);
+        setContent(response.data.content);
+        setTags(response.data.tags);
+      } catch (error) {
+        console.error('Error fetching article:', error);
+      }
+    };
+
+    fetchArticle();
+  }, [id]);
 
   const handleFileChange = (e) => {
     setScreenshots(e.target.files);
@@ -31,39 +40,32 @@ const CreateArticle = () => {
     formData.append('article[content]', content);
     formData.append('article[tags]', tags);
 
-    Array.from(screenshots).forEach((file) => {
-      formData.append('article[screenshots][]', file);
+    Array.from(screenshots).forEach((file, index) => {
+      formData.append(`article[screenshots][]`, file);
     });
 
     try {
-      const response = await axios.post(`${apiUrl}/articles`, formData, {
+      await axios.put(`${apiUrl}/articles/${id}`, formData, {
         headers: {
           'Accept': 'application/json',
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'multipart/form-data'
         }
       });
-      console.log('Article created:', response.data);
-
-      setTitle('');
-      setContent('');
-      setTags('');
-      setScreenshots([]);
-
-      setSuccessMessage('Article created successfully!');
+      setSuccessMessage('Article updated successfully!');
       setTimeout(() => {
-        navigate('/articles');
+        navigate(`/articles/${id}`);
       }, 2000);
     } catch (error) {
-      console.log('Error creating article:', error);
-      setSuccessMessage('Error creating article. Please try again.');
+      console.error('Error updating article:', error);
+      setSuccessMessage('Error updating article. Please try again.');
     }
   };
 
   return (
     <div className="create-article-container">
       <form onSubmit={handleSubmit} className="create-article-form">
-        <h2>Create New Article</h2>
+        <h2>Edit Article</h2>
         {successMessage && <p className="success-message">{successMessage}</p>}
         <div className="form-group">
           <label>Title:</label>
@@ -78,13 +80,13 @@ const CreateArticle = () => {
           <input type="text" className="input-field" value={tags} onChange={(e) => setTags(e.target.value)} />
         </div>
         <div className="form-group">
-          <label>Upload screenshots:</label>
+          <label>Upload New Screenshots (optional):</label>
           <input type="file" multiple onChange={handleFileChange} className="file-input" />
         </div>
-        <button type="submit" className="submit-button">Create Article</button>
+        <button type="submit" className="submit-button">Update Article</button>
       </form>
     </div>
   );
 };
 
-export default CreateArticle;
+export default EditArticle;
