@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
+import '../styles/Auth.css';
 
 const apiUrl = process.env.RAILS_APP_WEBSITE_URL || 'http://localhost:3001';
 
@@ -10,9 +11,6 @@ const Login = () => {
   const [showRegisterButton, setShowRegisterButton] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
-  const apiUrl = process.env.RAILS_APP_WEBSITE_URL || 'http://localhost:3001';
-
 
   useEffect(() => {
     const checkUsersExistence = async () => {
@@ -27,7 +25,6 @@ const Login = () => {
     };
     checkUsersExistence();
   }, []);
-
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -44,21 +41,21 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+    <div className="auth-container">
+      <h2 className="auth-title">Login</h2>
+      <form onSubmit={handleLogin} className="auth-form">
         <div>
           <label>Email:</label>
-          <input type='email' placeholder='Email' value={email} onChange={(e) => setemail(e.target.value)} required />
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setemail(e.target.value)} required />
         </div>
         <div>
           <label>Password:</label>
-          <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
-        <button type='submit'>Login</button>
+        <button type="submit" className="auth-button">Login</button>
       </form>
       {showRegisterButton && (
-        <button onClick={() => navigate('/register')}>Create an Account</button>
+        <button className="auth-button register-button" onClick={() => navigate('/register')}>Create an Account</button>
       )}
     </div>
   );

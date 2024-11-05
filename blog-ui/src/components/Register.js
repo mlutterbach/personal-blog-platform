@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles/Auth.css';
 
 const apiUrl = process.env.RAILS_APP_WEBSITE_URL || 'http://localhost:3001';
 
@@ -22,15 +23,24 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <input type='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
-        <input type='password' placeholder='Confirm Password' value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
-        <button type='submit'>Sign Up</button>
+    <div className="auth-container">
+      <h2 className="auth-title">Register</h2>
+      <form onSubmit={handleSubmit} className="auth-form">
+        <div>
+          <label>Email:</label>
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        </div>
+        <div>
+          <label>Confirm Password:</label>
+          <input type="password" placeholder="Confirm Password" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} required />
+        </div>
+        <button type="submit" className="auth-button">Sign Up</button>
       </form>
-      {message && <p>{message}</p>}
+      {message && <p className="auth-message">{message}</p>}
     </div>
   );
 };
