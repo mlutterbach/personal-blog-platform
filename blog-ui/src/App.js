@@ -11,6 +11,8 @@ import Resume from './components/Resume';
 import Footer from './components/Footer';
 import Register from './components/Register';
 import Login from './components/Login';
+import Projects from './components/Projects';
+import CreateProject from './components/CreateProject';
 
 function App() {
   return (
@@ -22,9 +24,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<ArticleList />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/articles/:id" element={<Article />} />
           <Route path="/articles/:id/edit" element={<EditArticle />} />
           <Route path="/create-article" element={<CreateArticle />} />
+          <Route path="/create-project" element={<CreateProject />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/resume" element={<Resume />} />
         </Routes>

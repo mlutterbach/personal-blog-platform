@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "articles#index"
 
   resources :articles
+  resources :projects, except: :show
   get '/users', to: 'users#index'
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
