@@ -1,13 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: MyString
-  description: MyText
-  project_link: MyString
-  github_url: MyString
+  title: "First Project"
+  description: "This project is about something great and very interesting."
+  project_link: "http://example.com/project1"
+  github_url: "https://github.com/user/project1"
 
 two:
-  title: MyString
-  description: MyText
-  project_link: MyString
-  github_url: MyString
+  title: "Second Project"
+  description: "Another fantastic project description here."
+  project_link: "http://example.com/project2"
+  github_url: "https://github.com/user/project2"

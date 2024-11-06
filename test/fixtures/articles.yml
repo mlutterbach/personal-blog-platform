@@ -1,11 +1,9 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: MyString
-  content: MyTextShouldBeOK
-  tags: MyString
+  title: "First Article"
+  content: "This is the content of the first article. It is longer than 10 characters."
+  tags: "tag1, tag2"
 
 two:
-  title: MyString
-  content: MyText
-  tags: MyString
+  title: "Second Article"
+  content: "This is the content of the second article. It has enough content."
+  tags: "tag3, tag4"
