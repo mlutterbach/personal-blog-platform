@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-  def show
-  end
-
+  before_action :authenticate_user!, only: [:me]
   def index
     @users = User.all
+    render json: @users
   end
 
   def new
@@ -21,7 +20,9 @@ class UsersController < ApplicationController
     end
   end
 
-  private
+  def me
+    render json: @current_user
+  end
 
   private
 
