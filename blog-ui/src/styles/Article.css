@@ -1,10 +1,18 @@
-/* src/styles/Article.css */
-
 .article-container {
   margin: 20px;
+  margin-top: 60px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+/* Narrower width for desktop view */
+@media (min-width: 768px) {
+  .article-container {
+    max-width: 800px; /* Adjust the width as needed */
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .article-actions {
@@ -34,14 +42,35 @@
   background-color: #c82333;
 }
 
+.article-content {
+  white-space: pre-wrap;
+}
+
 .screenshots {
   margin-top: 20px;
+  text-align: center;
 }
 
 .screenshot-image {
   max-width: 100%;
   height: auto;
   margin: 10px 0;
-  border: 1px solid #ccc; /* Optional: Add a border */
-  border-radius: 4px; /* Optional: Rounded corners */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust screenshot image width on larger screens */
+@media (min-width: 768px) {
+  .screenshot-image {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .screenshot-image {
+    max-width: 50%;
+  }
 }
