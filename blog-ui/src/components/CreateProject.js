@@ -11,12 +11,28 @@ const CreateProject = () => {
   const [projectLink, setProjectLink] = useState('');
   const [image, setImage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem('token');
-    if (!isLoggedIn) {
+    const token = localStorage.getItem('token');
+    const storedUserId = localStorage.getItem('userId');
+
+    if (!token || !storedUserId) {
       navigate('/login');
+    } else {
+      axios.get(`${apiUrl}/users/me`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching user details:', error);
+        navigate('/login');
+      });
     }
   }, [navigate]);
 
@@ -59,6 +75,7 @@ const CreateProject = () => {
     <div className="create-article-container">
       <form onSubmit={handleSubmit} className="create-article-form">
         <h2>Create New Project</h2>
+        {user && <p>Logged in as: {user.email}</p>}
         {successMessage && <p className="success-message">{successMessage}</p>}
         <div className="form-group">
           <label>Title:</label>

@@ -33,6 +33,7 @@ const Login = () => {
         email, password,
       });
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('userId', response.data.user_id);
       const redirectTo = location.state?.from || '/articles';
       navigate(redirectTo);
     } catch (error) {

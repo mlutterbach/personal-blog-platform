@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../styles/Projects.css'
+import '../styles/Projects.css';
 import { FaGithub } from 'react-icons/fa';
 
 const apiUrl = process.env.RAILS_APP_WEBSITE_URL || 'http://localhost:3001';
@@ -31,12 +31,12 @@ const Projects = () => {
               <h2 className="project-title">{project.title}</h2>
               <p className="project-description">
                 {project.description} {' '}
-                <a href={project.project_link} target="_blank" rel="noopener noreferrer" className="project-link" >
+                <a href={project.project_link} target="_blank" rel="noopener noreferrer" className="project-link">
                   Visit Project
                 </a>
               </p>
-              <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="project-link" >
-                  <FaGithub /> Github Repo
+              <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="project-link">
+                <FaGithub /> Github Repo
               </a>
             </div>
             <div className="project-image-wrapper">

@@ -11,17 +11,38 @@ const CreateArticle = () => {
   const [tags, setTags] = useState('');
   const [screenshots, setScreenshots] = useState([]);
   const [successMessage, setSuccessMessage] = useState('');
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem('token');
-    if (!isLoggedIn) {
+    const token = localStorage.getItem('token');
+    const storedUserId = localStorage.getItem('userId');
+
+    if (!token || !storedUserId) {
       navigate('/login');
+    } else {
+      axios.get(`${apiUrl}/users/me`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching user details:', error);
+        navigate('/login');
+      });
     }
   }, [navigate]);
 
   const handleFileChange = (e) => {
     setScreenshots(e.target.files);
+  };
+
+  const handleTextAreaResize = (e) => {
+    e.target.style.height = "auto";
+    e.target.style.height = `${e.target.scrollHeight}px`;
   };
 
   const handleSubmit = async (e) => {
@@ -64,6 +85,7 @@ const CreateArticle = () => {
     <div className="create-article-container">
       <form onSubmit={handleSubmit} className="create-article-form">
         <h2>Create New Article</h2>
+        {user && <p>Logged in as: {user.email}</p>}
         {successMessage && <p className="success-message">{successMessage}</p>}
         <div className="form-group">
           <label>Title:</label>
@@ -71,7 +93,7 @@ const CreateArticle = () => {
         </div>
         <div className="form-group">
           <label>Content:</label>
-          <textarea className="input-field" value={content} onChange={(e) => setContent(e.target.value)} required></textarea>
+          <textarea className="input-field" value={content} onChange={(e) => setContent(e.target.value)} onInput={handleTextAreaResize} required></textarea>
         </div>
         <div className="form-group">
           <label>Tags:</label>
