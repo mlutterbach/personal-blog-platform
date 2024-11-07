@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/Article.css';
+import '../styles/Tags.css'
 
 const apiUrl = process.env.RAILS_APP_WEBSITE_URL || 'http://localhost:3001';
 
@@ -46,12 +47,16 @@ const Article = () => {
     return <div>Loading article...</div>;
   }
 
+  const tagsArray = article.tags ? article.tags.split(',').map(tag => tag.trim()) : [];
+
   return (
     <div className="article-container">
       <h1>{article.title}</h1>
-      <p>{article.content}</p>
-      <p><strong>Tags:</strong> {article.tags}</p>
+      <div className="tags-container">
+        {tagsArray.map((tag, index) => (<span key={index} className="tag"> {tag} </span>))}
+      </div>
       <p><strong>Published At:</strong> {new Date(article.created_at).toLocaleDateString()}</p>
+      <p className="article-content">{article.content}</p>
 
       {/* Render Screenshots */}
       {article.screenshots && article.screenshots.length > 0 && (

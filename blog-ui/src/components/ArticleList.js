@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../styles/ArticleList.css';
+import '../styles/Tags.css';
 
 const apiUrl = process.env.RAILS_APP_WEBSITE_URL || 'http://localhost:3001';
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -36,21 +38,46 @@ const ArticleList = () => {
     return <div>Loading articles...</div>;
   }
 
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value.toLowerCase());
+  }
+
+  const filteredArticles = articles.filter(article =>
+    article.tags.toLowerCase().includes(searchTerm)
+  );
+
   return (
     <div className="article-list-container">
-      {articles.map((article) => (
-        <div key={article.id} className="article-item">
-          {article.screenshots && article.screenshots.length > 0 && (
-            <img src={article.screenshots[0].url} alt="Thumbnail" className="thumbnail" />
-          )}
-          <div className="article-content">
-            <h2>
-              <Link to={`/articles/${article.id}`}>{article.title}</Link>
-            </h2>
-            <p><strong>Published At:</strong> {new Date(article.created_at).toLocaleDateString()}</p>
+      <h1>Blogs</h1>
+      <p>Check out some of my blogs</p>
+
+      <input type='text' placeholder='Search by tag...' value={searchTerm} onChange={handleSearch} className='tag-search-input' />
+
+
+      <div className="articles-grid">
+        {filteredArticles.map((article) => (
+          <div key={article.id} className="article-item">
+            {article.screenshots && article.screenshots.length > 0 && (
+              <img src={article.screenshots[0].url} alt="Thumbnail" className="thumbnail" />
+            )}
+            <div className="article-content">
+              <h2>
+                <Link to={`/articles/${article.id}`}>{article.title}</Link>
+              </h2>
+              <p><strong>Published At:</strong> {new Date(article.created_at).toLocaleDateString()}</p>
+
+              {/* Render tags as individual styled elements */}
+              <div className="tags-container">
+                {article.tags.split(',').map((tag, index) => (
+                  <span key={index} className="tag">
+                    {tag.trim()}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

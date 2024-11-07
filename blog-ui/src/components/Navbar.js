@@ -26,7 +26,7 @@ const Navbar = () => {
           <Link to="/" className="name-link">
             <span>Marcos Lutterbach</span>
           </Link>
-          <span className='role'>Ruby Developer</span>
+          <span className='role'>Web Developer | Ruby/Rails | Javascript/Node.js </span>
         </div>
       </div>
       <div className='navbar-right'>

@@ -11,9 +11,11 @@ const Home = () => {
         <img src={`${process.env.PUBLIC_URL}/profile.jpg`} alt='Profile' className='profile-image' />
       </div>
       <div className='intro-section'>
-        <h1>Hello</h1>
+        <h1>Hello, I'm Marcos</h1>
         <h2>A bit about me</h2>
         <p>Welcome to my personal site! I am passionate about programming, technology, languages.
+        Web Developer in Ruby/Ruby on Rails and Javascript/Node.js since going through an awesome bootcamp
+        in Madrid. I've built this site to share a bit of what I've learned since 2022.
         Take a look at my resume, projects, and blog, or feel free to contact me.</p>
         <div className="circle-container">
           <div className="circle resume" onClick={() => navigate('/resume')}>Resume</div>
