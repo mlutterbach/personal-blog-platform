@@ -48,6 +48,7 @@ const Article = () => {
   }
 
   const tagsArray = article.tags ? article.tags.split(',').map(tag => tag.trim()) : [];
+  const formattedDate = new Date(article.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
   return (
     <div className="article-container">
@@ -55,7 +56,7 @@ const Article = () => {
       <div className="tags-container">
         {tagsArray.map((tag, index) => (<span key={index} className="tag"> {tag} </span>))}
       </div>
-      <p><strong>Published At:</strong> {new Date(article.created_at).toLocaleDateString()}</p>
+      <p><strong>Published At:</strong> {formattedDate}</p>
       <p className="article-content">{article.content}</p>
 
       {/* Render Screenshots */}

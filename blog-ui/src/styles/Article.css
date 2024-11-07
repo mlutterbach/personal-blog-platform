@@ -1,15 +1,14 @@
 .article-container {
   margin: 20px;
-  margin-top: 60px;
+  margin-top: 70px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-/* Narrower width for desktop view */
 @media (min-width: 768px) {
   .article-container {
-    max-width: 800px; /* Adjust the width as needed */
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
   }

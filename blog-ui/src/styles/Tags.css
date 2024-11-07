@@ -1,8 +1,11 @@
 .tags-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-top: 10px;
   margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .tag {
@@ -13,4 +16,5 @@
   font-size: 0.9em;
   font-weight: 500;
   display: inline-block;
+  max-width: calc(100% - 8px);
 }
