@@ -1,18 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import ArticleList from './components/ArticleList';
-import CreateArticle from './components/CreateArticle';
-import EditArticle from './components/EditArticle';
-import Article from './components/Article';
-import Contact from './components/Contact';
-import Resume from './components/Resume';
-import Footer from './components/Footer';
-import Register from './components/Register';
-import Login from './components/Login';
-import Projects from './components/Projects';
-import CreateProject from './components/CreateProject';
+import {
+  Navbar, Footer, Home, ArticleList, Article, CreateArticle,
+  EditArticle, Contact, Resume, Register, Login, Projects, CreateProject
+} from './components';
 
 function App() {
   return (
