@@ -33,3 +33,33 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/database.yml
+/config/credentials.yml
+/config/secrets.yml
+
+# Ignore coverage reports
+/coverage/
+
+# Ignore database dump files
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore generated migrations
+/db/schema.rb
+/db/structure.sql
+/db/*.dump
+
+# macOS specific
+.DS_Store
+
+# Ignore Yarn / NPM lock files
+yarn.lock
+package-lock.json
+
+# Ignore RSpec temporary files
+/spec/tmp/
+/spec/test_output/
+
+# Ignore Docker files
+.docker/
+docker-compose.override.yml
