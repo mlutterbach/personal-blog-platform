@@ -1,1 +1,1 @@
-web: cd blog && bundle exec rails server -p ${PORT:-3000} -e ${RAILS_ENV:-production}
+web: bundle exec rails server -b '0.0.0.0'
