@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/Contact.css';
 
-const apiUrl = process.env.RAILS_APP_WEBSITE_URL || 'http://localhost:3001';
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 const Contact = () => {
   const [firstName, setFirstName] = useState('');

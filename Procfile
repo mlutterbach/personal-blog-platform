@@ -1,1 +1,2 @@
-web: bundle exec rails server -b '0.0.0.0'
+web: cd blog && bundle exec puma -C config/puma.rb
+client: cd blog-ui && npm start

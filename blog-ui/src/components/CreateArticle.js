@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/CreateArticle.css';
 
-const apiUrl = process.env.RAILS_APP_WEBSITE_URL || 'http://localhost:3001';
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 const CreateArticle = () => {
   const [title, setTitle] = useState('');

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../styles/ArticleList.css';
 import '../styles/Tags.css';
 
-const apiUrl = process.env.RAILS_APP_WEBSITE_URL || 'http://localhost:3001';
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
