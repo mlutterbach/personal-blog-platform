@@ -1,0 +1,11 @@
+one:
+  title: "First Project"
+  description: "This project is about something great and very interesting."
+  project_link: "http://example.com/project1"
+  github_url: "https://github.com/user/project1"
+
+two:
+  title: "Second Project"
+  description: "Another fantastic project description here."
+  project_link: "http://example.com/project2"
+  github_url: "https://github.com/user/project2"

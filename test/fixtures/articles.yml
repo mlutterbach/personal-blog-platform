@@ -1,0 +1,9 @@
+one:
+  title: "First Article"
+  content: "This is the content of the first article. It is longer than 10 characters."
+  tags: "tag1, tag2"
+
+two:
+  title: "Second Article"
+  content: "This is the content of the second article. It has enough content."
+  tags: "tag3, tag4"
