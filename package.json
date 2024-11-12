@@ -2,7 +2,8 @@
   "name": "personal-blog-platform",
   "version": "1.0.0",
   "scripts": {
-    "build": "cd blog-ui && npm install && npm run build && cd ../blog && bundle install --without development test"
+    "build": "cd blog-ui && npm install && npm run build",
+    "heroku-postbuild": "cp -r blog-ui/build/* blog/public/"
   },
   "dependencies": {
     "concurrently": "^9.1.0"
