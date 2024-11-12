@@ -1,0 +1,10 @@
+{
+  "name": "personal-blog-platform",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd blog-ui && npm install && npm run build && cd ../blog && bundle install --without development test"
+  },
+  "dependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
