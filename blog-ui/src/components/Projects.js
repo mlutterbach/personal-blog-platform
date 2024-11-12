@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../styles/Projects.css';
 import { FaGithub } from 'react-icons/fa';
 
-const apiUrl = process.env.RAILS_APP_WEBSITE_URL || 'http://localhost:3001';
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
