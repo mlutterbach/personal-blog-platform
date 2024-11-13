@@ -25,7 +25,7 @@ module Blog
     # config.eager_load_paths << Rails.root.join("extras")
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'localhost:3000', 'https://mlutterbach-website-8c19b2997056.herokuapp.com/'
+        origins 'localhost:3001', 'localhost:3000'
         resource '*',
           headers: :any,
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
