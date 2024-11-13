@@ -1,0 +1,7 @@
+{
+  "name": "personal-blog-platform",
+  "scripts": {
+    "heroku-postbuild": "npm install --prefix blog-ui && npm run build --prefix blog-ui",
+    "postinstall": "rm -rf blog/public/* && cp -a blog-ui/build/. blog/public/"
+  }
+}
