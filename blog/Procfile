@@ -1,0 +1,3 @@
+web: bundle install && bundle exec rake assets:precompile && bundle exec puma -C config/puma.rb
+release: bin/rails db:migrate
+postdeploy: cd ../blog-ui && npm install && npm run build && cp -a build/. ../blog/public/
