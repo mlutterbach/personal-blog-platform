@@ -11,8 +11,7 @@ COPY blog-ui/ .
 RUN npm run build
 
 # Stage 2: Setup Ruby and install dependencies for Rails backend
-ARG RUBY_VERSION=3.2.5
-FROM ruby:$RUBY_VERSION AS base
+FROM ruby:3.2.5 AS base
 
 # Rails app working directory
 WORKDIR /rails
