@@ -1,0 +1,35 @@
+services:
+  - name: blog-rails-backend
+    type: web
+    env: docker
+    buildCommand: ./bin/rails assets:precompile
+    startCommand: ./bin/rails server -b 0.0.0.0
+    dockerfilePath: blog/Dockerfile
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: DATABASE_URL
+        value: ${DATABASE_URL}
+      - key: RAILS_MASTER_KEY
+        value: ${RAILS_MASTER_KEY}
+    build:
+      dockerfilePath: blog/Dockerfile
+      dockerBuildContext: blog
+      envFile: .env.production
+
+  - name: blog-ui-frontend
+    type: web
+    env: docker
+    dockerfilePath: blog-ui/Dockerfile
+    envVars:
+      - key: REACT_APP_API_BASE_URL
+        value: ${REACT_APP_API_BASE_URL}
+    build:
+      dockerfilePath: blog-ui/Dockerfile
+      dockerBuildContext: blog-ui
+    startCommand: serve -s build -l 80
+    ports:
+      - 80
+    envVars:
+      - key: NODE_ENV
+        value: production
