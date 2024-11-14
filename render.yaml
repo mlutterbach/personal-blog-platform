@@ -2,7 +2,7 @@ services:
   - name: blog-rails-backend
     type: web
     env: docker
-    buildCommand: ./bin/rails assets:precompile
+    buildCommand: ./bin/render-build.sh
     startCommand: ./bin/rails server -b 0.0.0.0
     dockerfilePath: blog/Dockerfile
     envVars:
