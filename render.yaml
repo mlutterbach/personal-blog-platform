@@ -1,16 +1,36 @@
+databases:
+- name: mlutterbach-website
+  databaseName: mlutterbach_website
+  user: mlutterbach_website_user
+  plan: basic-256mb
+  region: oregon
+  ipAllowList:
+  - source: 0.0.0.0/0
+    description: everywhere
+  postgresMajorVersion: "16"
+  diskSizeGB: 15
 services:
-  - name: blog-fullstack-app
-    type: web
-    env: docker
-    startCommand: ./bin/rails server -b 0.0.0.0
-    preDeployCommand: bundle exec rake db:migrate
-    dockerfilePath: Dockerfile
-    envVars:
-      - key: RAILS_ENV
-        value: production
-      - key: DATABASE_URL
-        value: ${DATABASE_URL}
-      - key: RAILS_MASTER_KEY
-        value: ${RAILS_MASTER_KEY}
-      - key: REACT_APP_API_BASE_URL
-        value: ${REACT_APP_API_BASE_URL}
+- type: web
+  name: mlutterbach-website
+  runtime: docker
+  repo: https://github.com/mlutterbach/personal-blog-platform
+  plan: free
+  envVars:
+  - key: REACT_APP_API_BASE_URL
+    sync: false
+  - key: DATABASE_URL
+    fromDatabase:
+      name: mlutterbach-website
+      property: connectionString
+  - key: RAILS_MASTER_KEY
+    sync: false
+  - key: RAILS_ENV
+    sync: false
+  - key: GMAIL_PASSWORD
+    sync: false
+  - key: GMAIL_USERNAME
+    sync: false
+  region: oregon
+  dockerContext: .
+  dockerfilePath: ./Dockerfile
+version: "1"
