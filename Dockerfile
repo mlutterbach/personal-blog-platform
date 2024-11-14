@@ -12,7 +12,7 @@ RUN npm run build
 
 # Stage 2: Setup Ruby and install dependencies for Rails backend
 ARG RUBY_VERSION=3.2.5
-FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
+FROM ruby:$RUBY_VERSION-slim AS base
 
 # Rails app working directory
 WORKDIR /rails
