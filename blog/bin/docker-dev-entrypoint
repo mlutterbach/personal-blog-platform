@@ -1,0 +1,13 @@
+#!/bin/bash -e
+set -e
+
+echo "Running entrypoint script..."
+echo "RAILS_ENV is set to: ${RAILS_ENV}"
+
+# If running the rails server then create or migrate existing database
+if [ "${RAILS_ENV}" == "development" ]; then
+  echo "Preparing database..."
+  bundle exec rails db:prepare
+fi
+
+exec "${@}"

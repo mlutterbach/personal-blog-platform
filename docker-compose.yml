@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  blog-db:
+    image: postgres
+    container_name: blog-db
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - blog-db-data:/var/lib/postgresql/data
+
+  blog-rails-backend:
+    build:
+      context: ./blog
+      dockerfile: dev.Dockerfile
+    container_name: blog-rails-backend
+    env_file:
+      - .env
+    ports:
+      - "3001:3000"
+    depends_on:
+      - blog-db
+    volumes:
+      - ./blog:/rails/blog
+
+  blog-ui-frontend:
+    build:
+      context: ./blog-ui
+      dockerfile: dev.Dockerfile
+    container_name: blog-ui-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./blog-ui:/rails/blog-ui
+
+volumes:
+  blog-db-data:
