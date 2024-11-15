@@ -14,3 +14,5 @@ services:
         value: ${RAILS_MASTER_KEY}
       - key: REACT_APP_API_URL
         value: ${REACT_APP_API_URL}
+      - key: NODE_ENV
+        value: ${NODE_ENV}

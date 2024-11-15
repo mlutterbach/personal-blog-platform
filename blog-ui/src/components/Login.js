@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Auth.css';
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const apiUrl = process.env.REACT_APP_API_URL;
+console.log('Login website:', process.env.REACT_APP_API_URL);
 
 const Login = () => {
   const [email, setemail] = useState('');
