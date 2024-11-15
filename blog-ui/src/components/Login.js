@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Auth.css';
 
 const apiUrl = process.env.REACT_APP_API_URL || 'https://personal-blog-platform.onrender.com';
+console.log("API_URL", process.env.API_URL)
 
 const Login = () => {
   const [email, setemail] = useState('');
