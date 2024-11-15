@@ -3,10 +3,7 @@ import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Auth.css';
 
-const apiUrl = process.env.REACT_APP_API_URL;
-console.log('process.env:', process.env);
-console.log('Login website:', process.env.REACT_APP_API_URL);
-console.log('Login website:', process.env.RENDER_EXTERNAL_HOSTNAME);
+const apiUrl = process.env.REACT_APP_API_URL || 'https://personal-blog-platform.onrender.com';
 
 const Login = () => {
   const [email, setemail] = useState('');
