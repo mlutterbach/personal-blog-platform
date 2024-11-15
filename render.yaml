@@ -16,5 +16,3 @@ services:
         value: ${REACT_APP_API_URL}
       - key: NODE_ENV
         value: ${NODE_ENV}
-      - key: API_URL
-        value: ${API_URL}

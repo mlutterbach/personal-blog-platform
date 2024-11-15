@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/Auth.css';
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const apiUrl = process.env.REACT_APP_API_URL || 'https://personal-blog-platform.onrender.com';
 
 const Register = () => {
   const [email, setEmail] = useState('');

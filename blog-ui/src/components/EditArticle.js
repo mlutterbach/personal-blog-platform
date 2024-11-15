@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import '../styles/CreateArticle.css';
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const apiUrl = process.env.REACT_APP_API_URL || 'https://personal-blog-platform.onrender.com';
 
 const EditArticle = () => {
   const { id } = useParams();

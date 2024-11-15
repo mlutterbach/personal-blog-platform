@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../styles/ArticleList.css';
 import '../styles/Tags.css';
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const apiUrl = process.env.REACT_APP_API_URL || 'https://personal-blog-platform.onrender.com';
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
