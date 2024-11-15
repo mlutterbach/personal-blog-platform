@@ -6,6 +6,7 @@ import '../styles/Auth.css';
 const apiUrl = process.env.REACT_APP_API_URL;
 console.log('process.env:', process.env);
 console.log('Login website:', process.env.REACT_APP_API_URL);
+console.log('Login website:', process.env.RENDER_EXTERNAL_HOSTNAME);
 
 const Login = () => {
   const [email, setemail] = useState('');

@@ -13,6 +13,6 @@ services:
       - key: RAILS_MASTER_KEY
         value: ${RAILS_MASTER_KEY}
       - key: REACT_APP_API_URL
-        value: ${REACT_APP_API_URL}
+        value: ${RENDER_EXTERNAL_HOSTNAME}
       - key: NODE_ENV
         value: ${NODE_ENV}
