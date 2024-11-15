@@ -8,7 +8,11 @@ fi
 # If running the rails server, ensure the database is prepared (migrated and schema loaded)
 if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
   echo "Preparing the database..."
+  echo "Hello, Marcos!!!!!!!!!!!!!"
   ./bin/rails db:prepare
+
+  echo "Current production schema:"
+  cat db/schema.rb
 fi
 
 # Execute the provided command
