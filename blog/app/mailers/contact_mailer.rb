@@ -1,15 +1,26 @@
-class ContactMailer < ApplicationMailer
-  default from: ENV['GMAIL_USERNAME']
+class ContactMailer
+  require 'sendgrid-ruby'
+  include SendGrid
 
-  def contact_email(contact_params)
-    @first_name = contact_params[:first_name]
-    @last_name = contact_params[:last_name]
-    @message = contact_params[:message]
-    @subject = contact_params[:subject]
+  def self.contact_email(contact)
+    from = Email.new(email: 'mlutterb@gmail.com')
+    to = Email.new(email: 'mlutterb@gmail.com')
+    subject = contact[:subject]
 
-    mail(to: 'mlutterb@gmail.com', subject: "New Contact Form Submission: #{@subject}") do |format|
-      format.text { render plain: "#{@first_name} #{@last_name} sent a message: #{@message}" }
-      format.html { render html: "<strong>Message from:</strong> #{@first_name} #{@last_name}<br><strong>Email:</strong> #{contact_params[:email]}<br><strong>Message:</strong> #{@message}".html_safe }
+    content = Content.new(
+      type: 'text/html',
+      value: "First name: #{contact[:first_name]}<br>Last name: #{contact[:last_name]}<br>Email: #{contact[:email]}<br>Message: #{contact[:message]}"
+    )
+
+    mail = Mail.new(from, subject, to, content)
+
+    sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+    begin
+      response = sg.client.mail._('send').post(request_body: mail.to_json)
+      Rails.logger.info "Email sent with status code: #{response.status_code}"
+      Rails.logger.info "Response body: #{response.body}"
+    rescue StandardError => e
+      Rails.logger.error "Failed to send email: #{e.message}"
     end
   end
 end

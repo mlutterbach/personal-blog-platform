@@ -8,8 +8,8 @@ module Api
 
         Rails.logger.info "Received Contact Form Submission: #{contact_params}"
 
-        # Trigger email notification
-        ContactMailer.contact_email(contact_params).deliver_now
+        # Trigger email notification with Sendgrid
+        ContactMailer.contact_email(contact_params)
 
         render json: { message: 'Thank you for your message. We will get back to you soon!' }, status: :created
       rescue StandardError => e
