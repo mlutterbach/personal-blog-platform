@@ -16,7 +16,5 @@ services:
         value: ${REACT_APP_API_URL}
       - key: NODE_ENV
         value: ${NODE_ENV}
-      - key: GMAIL_USERNAME
-        value: ${GMAIL_USERNAME}
-      - key: GMAIL_PASSWORD
-        value: ${GMAIL_PASSWORD}
+      - key: SENDGRID_API_KEY
+        value: ${SENDGRID_API_KEY}

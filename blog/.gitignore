@@ -64,3 +64,4 @@ package-lock.json
 # Ignore Docker files
 .docker/
 docker-compose.override.yml
+sendgrid.env
