@@ -77,10 +77,7 @@ Rails.application.configure do
 
   # Configure ActionMailer for production using Sendgrid
   config.action_mailer.default_url_options = { host: "https://personal-blog-platform.onrender.com" }
-  config.action_mailer.delivery_method = :sendgrid
-  config.action_mailer.sendgrid_settings = {
-    api_key: ENV['SENDGRID_API_KEY']
-  }
+  config.action_mailer.delivery_method = :test
 
   # Enable email delivery errors in production
   config.action_mailer.raise_delivery_errors = true
