@@ -1,4 +1,5 @@
 require "active_support/core_ext/integer/time"
+require "sendgrid-ruby"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -74,17 +75,11 @@ Rails.application.configure do
   # config.active_job.queue_adapter = :resque
   # config.active_job.queue_name_prefix = "blog_production"
 
-  # Configure ActionMailer for production using Gmail SMTP
+  # Configure ActionMailer for production using Sendgrid
   config.action_mailer.default_url_options = { host: "https://personal-blog-platform.onrender.com" }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'https://personal-blog-platform.onrender.com',
-    user_name: ENV['GMAIL_USERNAME'],
-    password: ENV['GMAIL_PASSWORD'],
-    authentication: 'plain',
-    enable_starttls_auto: true
+  config.action_mailer.delivery_method = :sendgrid
+  config.action_mailer.sendgrid_settings = {
+    api_key: ENV['SENDGRID_API_KEY']
   }
 
   # Enable email delivery errors in production
