@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/Projects.css';
+import { useNavigate } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 
 const apiUrl = process.env.REACT_APP_API_URL || 'https://personal-blog-platform.onrender.com';
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
+  const navigate = useNavigate();
+  const [error, setError] = useState(null);
+  const isLoggedIn = !!localStorage.getItem('token');
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -20,6 +24,22 @@ const Projects = () => {
 
     fetchProjects();
   }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`${apiUrl}/projects/${id}`, {
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+      });
+      setProjects((prevProjects) => prevProjects.filter((project) => project.id !== id));
+    } catch (err) {
+      console.error('Error deleting project:', err);
+      setError('Error deleting project');
+    }
+  };
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <div className="projects-container">
@@ -44,6 +64,13 @@ const Projects = () => {
                 <img src={project.image.url} alt={project.title} className="project-image" />
               )}
             </div>
+
+            {isLoggedIn && (
+              <div className="project-actions">
+                <button onClick={() => navigate(`/projects/${project.id}/edit`)}>Edit</button>
+                <button onClick={() => handleDelete(project.id)}>Delete</button>
+              </div>
+            )}
           </div>
         ))}
       </div>

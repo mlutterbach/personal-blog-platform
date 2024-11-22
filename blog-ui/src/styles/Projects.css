@@ -82,3 +82,30 @@
     justify-content: center;
   }
 }
+
+.project-actions {
+  margin-top: 20px;
+}
+
+.project-actions button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.project-actions button:hover {
+  background-color: #0056b3;
+}
+
+.project-actions button:last-child {
+  background-color: #dc3545;
+}
+
+.project-actions button:last-child:hover {
+  background-color: #c82333;
+}

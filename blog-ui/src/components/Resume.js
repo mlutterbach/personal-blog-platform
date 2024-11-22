@@ -55,13 +55,20 @@ const Resume = () => {
             <div className="entry-title">Projects</div>
           </div>
           <div className="resume-details">
-          <div className="resume-entry">
-            <div className="entry-title"><strong>Social Media Clone</strong></div>
-            <div className="entry-date">October 2024</div>
-          </div>
-            <ul>
-            <li>Clone of the social media platform X, rettiwT project built with Rails, Ruby, HTML, and SCSS. Implemented test-driven development (TDD) with RSpec. Deployed with Render. <a href="https://social-media-clone-0t7w.onrender.com/" target="_blank" rel="noopener noreferrer">View Project</a></li>
-            </ul>
+            <div className="resume-entry">
+              <div className="entry-title"><strong>Personal Website</strong></div>
+              <div className="entry-date">November 2024</div>
+            </div>
+              <ul>
+                <li>Developed with Ruby on Rails in the backend, tested with Minitest, React in the frontend, and deployed with Docker to Render in production. In addition, the contact page uses the Sendgrid API. <a href="https://personal-blog-platform.onrender.com/" target="_blank" rel="noopener noreferrer">View Project</a></li>
+              </ul>
+            <div className="resume-entry">
+              <div className="entry-title"><strong>Social Media Clone</strong></div>
+              <div className="entry-date">October 2024</div>
+            </div>
+              <ul>
+                <li>Clone of the social media platform X, rettiwT project built with Rails, Ruby, HTML, and SCSS. Implemented test-driven development (TDD) with RSpec. Deployed with Render. <a href="https://social-media-clone-0t7w.onrender.com/" target="_blank" rel="noopener noreferrer">View Project</a></li>
+              </ul>
             <div className="entry-title"><strong>FuturApp</strong></div>
             <div className="entry-date">June 2022 – June 2022</div>
             <ul>
