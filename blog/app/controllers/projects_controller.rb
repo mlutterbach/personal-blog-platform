@@ -1,13 +1,18 @@
 class ProjectsController < ApplicationController
   include ActiveStorage::SetCurrent
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
-  before_action :set_project, only: %w[edit update destroy]
+  before_action :set_project, only: %w[show edit update destroy]
 
   # GET /projects
   def index
     @projects = Project.all
 
     render json: @projects.as_json(include: { image: { methods: :url } })
+  end
+
+  # GEt /projects/:id
+  def show
+    render json: @project.as_json(include: { image: { methods: :url } })
   end
 
   # GET /projects/new

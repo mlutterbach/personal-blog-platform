@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "articles#index"
 
   resources :articles
-  resources :projects, except: :show
+  resources :projects
   get '/users', to: 'users#index'
   get '/users/me', to: 'users#me'
   post '/signup', to: 'users#create'
